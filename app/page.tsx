@@ -74,7 +74,7 @@ export default function Home() {
     <div className="w-full h-full">
       <nav className="px-8 py-4 bg-yellow-800 text-white flex items-center justify-between w-full">
         <div className="font-bold text-4xl ">Ikaze Fast Food</div>
-        <div className="flex items-center gap-4 justify-evenly">
+        <div className="hidden lg:flex items-center gap-4 justify-evenly">
           <span>Home</span>
           <a href="#dishes">
             <span>Dishes</span>
