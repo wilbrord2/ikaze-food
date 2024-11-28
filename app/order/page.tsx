@@ -1,5 +1,8 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import QRCode from "qrcode";
 
 interface Dish {
   imageSrc: string;
@@ -36,11 +39,26 @@ const OrderPage = () => {
   const whatsappNumber = "+250783757180"; // Replace with your actual WhatsApp number
   const message =
     "Hello, I would like to place an order for the following dishes:";
+  const [qrCodeUrl, setQrCodeUrl] = useState<string>("");
+
+  // Generate QR Code for WhatsApp link
+  useEffect(() => {
+    const generateQrCode = async () => {
+      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+        message
+      )}`;
+      const qrUrl = await QRCode.toDataURL(whatsappLink);
+      setQrCodeUrl(qrUrl);
+    };
+
+    generateQrCode();
+  }, [whatsappNumber, message]);
 
   return (
     <section>
+      {/* Navbar */}
       <nav className="px-8 py-4 bg-yellow-800 text-white flex items-center justify-between w-full">
-        <div className="font-bold text-4xl ">Ikaze Fast Food</div>
+        <div className="font-bold text-4xl">Ikaze Fast Food</div>
         <div className="hidden lg:flex items-center gap-4 justify-evenly">
           <Link href={"/"}>
             <span>Home</span>
@@ -59,6 +77,8 @@ const OrderPage = () => {
           </Link>
         </div>
       </nav>
+
+      {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-gray-800 mb-6">
           Order Your Favorite Dishes
@@ -89,7 +109,7 @@ const OrderPage = () => {
                 </h2>
                 <p className="text-gray-600 text-sm mb-4">{dish.description}</p>
                 <div className="text-lg font-semibold text-gray-800 mb-4">
-                  {dish.price}RWF
+                  {dish.price} RWF
                 </div>
               </div>
             </div>
@@ -99,23 +119,42 @@ const OrderPage = () => {
         {/* Contact Section */}
         <div
           id="contact"
-          className="mt-12 bg-gray-100 p-6 rounded-lg shadow-md"
+          className="flex gap-12 items-center justify-center mt-12 bg-gray-100 p-6 rounded-lg shadow-md"
         >
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Contact Us</h2>
-          <p className="text-gray-600 mb-4">
-            If you would like to place an order or have any inquiries, reach out
-            to us via WhatsApp.
-          </p>
-          <a
-            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-              message
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-500 text-white p-4 rounded-lg hover:bg-green-600 transition"
-          >
-            Contact Us on WhatsApp
-          </a>
+          <div>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Contact Us
+            </h2>
+            <p className="text-gray-600 mb-4">
+              If you would like to place an order or have any inquiries, reach
+              out to us via WhatsApp.
+            </p>
+            <a
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                message
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition"
+            >
+              Contact Us on WhatsApp
+            </a>
+          </div>
+          <div>
+            {/* QR Code Section */}
+            {qrCodeUrl && (
+              <div className="mt-6">
+                <h3 className="text-lg font-bold text-gray-800 mb-2">
+                  Scan to Order
+                </h3>
+                <img
+                  src={qrCodeUrl}
+                  alt="WhatsApp QR Code"
+                  className="w-32 h-32 "
+                />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>
