@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface FoodCardProps {
   imageSrc: string;
@@ -33,9 +34,11 @@ const FoodCard: React.FC<FoodCardProps> = ({ imageSrc, name, description, price 
         <div className="text-lg font-semibold text-gray-800 mb-4">{price} RWF</div>
 
         {/* Order Button */}
+        <Link href="/order">
         <button className="w-full bg-yellow-500 text-white py-2 px-4 rounded-md hover:bg-yellow-600 transition">
           Order Now
         </button>
+        </Link>
       </div>
     </div>
   );

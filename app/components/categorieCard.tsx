@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface FoodCategoryProps {
   categoryImage: string;
@@ -42,9 +43,11 @@ const FoodCategoryCard: React.FC<FoodCategoryProps> = ({
         </ul>
 
         {/* Browse Button */}
+        <Link href="/order">
         <button className="w-full bg-yellow-500 text-white py-2 px-4 rounded-md hover:bg-yellow-600 transition">
           Browse {categoryName}
         </button>
+        </Link>
       </div>
     </div>
   );
