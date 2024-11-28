@@ -119,7 +119,7 @@ const OrderPage = () => {
         {/* Contact Section */}
         <div
           id="contact"
-          className="flex gap-12 items-center justify-center mt-12 bg-gray-100 p-6 rounded-lg shadow-md"
+          className="flex gap-12 items-center justify-center flex-wrap mt-12 bg-gray-100 p-6 rounded-lg shadow-md"
         >
           <div>
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
