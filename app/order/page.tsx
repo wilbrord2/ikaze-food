@@ -135,7 +135,7 @@ const OrderPage = () => {
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition"
+              className="bg-green-500 text-white p-4 rounded-lg hover:bg-green-600 transition"
             >
               Contact Us on WhatsApp
             </a>
