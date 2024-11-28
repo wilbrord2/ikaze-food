@@ -58,9 +58,9 @@ const OrderPage = () => {
     <section>
       {/* Navbar */}
       <nav className="px-8 py-4 bg-yellow-800 text-white flex items-center justify-between w-full">
-        <div className="font-bold text-4xl">Ikaze Fast Food</div>
+      <Link href={"/"}>  <div className="font-bold text-4xl">Ikaze Fast Food</div></Link>
         <div className="hidden lg:flex items-center gap-4 justify-evenly">
-          <Link href={"/"}>
+        <Link href={"/"}>
             <span>Home</span>
           </Link>
           <Link href={"/"}>

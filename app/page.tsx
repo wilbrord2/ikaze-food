@@ -185,14 +185,56 @@ export default function Home() {
         </h1>
         <Image src={"/menu.png"} alt="menu" height={600} width={500} />
       </section>
-
       <section
         id="contact"
-        className="flex items-center flex-wrap justify-center gap-2 bg-yellow-900 text-white p-8"
+        className="flex flex-col lg:flex-row items-center justify-between gap-4 bg-yellow-900 text-white p-8 shadow-md"
       >
-        <span className="text-2xl font-bold">Contacts:</span>
-        <span>+250-785694467</span>
-        <span>ikazefastfood@gmail.com</span>
+        {/* Heading */}
+        <div className="text-center lg:text-left">
+          <h2 className="text-3xl font-bold mb-2">Contact Us</h2>
+          <p className="text-gray-300">
+            Reach out to us for inquiries or to place an order. We're happy to
+            assist you!
+          </p>
+        </div>
+
+        {/* Contact Details */}
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 text-white"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M2.003 5.884l8-4a1 1 0 01.894 0l8 4a1 1 0 010 1.788l-8 4a1 1 0 01-.894 0l-8-4a1 1 0 010-1.788zM11 11.05v7.416a1 1 0 001.447.894l5.559-3.11a1 1 0 00.003-1.788L12.447 9.95a1 1 0 00-1.447.894z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span>+250-785694467</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 text-white"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path d="M2.003 5.884l8-4a1 1 0 01.894 0l8 4a1 1 0 010 1.788l-8 4a1 1 0 01-.894 0l-8-4a1 1 0 010-1.788zM11 11.05v7.416a1 1 0 001.447.894l5.559-3.11a1 1 0 00.003-1.788L12.447 9.95a1 1 0 00-1.447.894z" />
+            </svg>
+            <span>ikazefastfood@gmail.com</span>
+          </div>
+        </div>
+
+        {/* Call-to-Action Button */}
+        <a
+          href="/order"
+          className="bg-yellow-500 py-3 px-6 text-white font-semibold rounded-lg hover:bg-yellow-800 transition"
+        >
+          Place Your Order
+        </a>
       </section>
     </div>
   );
