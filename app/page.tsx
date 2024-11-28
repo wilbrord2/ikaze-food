@@ -188,7 +188,7 @@ export default function Home() {
 
       <section
         id="contact"
-        className="flex items-center justify-center gap-2 bg-yellow-900 text-white p-8"
+        className="flex items-center flex-wrap justify-center gap-2 bg-yellow-900 text-white p-8"
       >
         <span className="text-2xl font-bold">Contacts:</span>
         <span>+250-785694467</span>
