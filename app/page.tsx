@@ -124,7 +124,7 @@ export default function Home() {
 
       <section id="categories" className=" w-full p-8">
         <h1 className="text-4xl font-bold text-center py-8">Our Categories</h1>
-        <div className="flex w-full items-center justify-between gap-4">
+        <div className="flex w-full items-center justify-center  flex-wrap gap-8">
           <div>
             <h1 className="text-2xl font-bold pb-4 ">Traditional Food</h1>
             <FoodCategoryCard
