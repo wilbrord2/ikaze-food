@@ -1,101 +1,186 @@
+"use client";
 import Image from "next/image";
+import FoodCard from "./components/foodCard";
+import FoodCategoryCard from "./components/categorieCard";
+
+const TraditionalFood = [
+  {
+    imageSrc: "/burger1.avif",
+    name: "Ugali with Sukuma Wiki",
+    description:
+      "A traditional East African dish made with maize flour and served with sautéed collard greens.",
+    price: 4000,
+  },
+  {
+    imageSrc: "/jollof.jpg",
+    name: "Jollof Rice",
+    description:
+      "A popular West African dish made with rice, tomatoes, onions, and a blend of spices.",
+    price: 6500,
+  },
+  {
+    imageSrc: "/chapati.jfif",
+    name: "Chapati and Beans",
+    description:
+      "Soft flatbread served with a savory stew of beans cooked in coconut sauce.",
+    price: 3000,
+  },
+  {
+    imageSrc: "/bors.jpg",
+    name: "Boerewors and Pap",
+    description:
+      "A South African dish featuring spiced sausage paired with maize porridge.",
+    price: 8900,
+  },
+  {
+    imageSrc: "/chicken-biryani-5.jpg",
+    name: "Biryani",
+    description:
+      "A fragrant rice dish layered with spiced meat or vegetables, popular in East Africa and South Asia.",
+    price: "10,000",
+  },
+  {
+    imageSrc: "/grilled.jpeg",
+    name: "Injera with Doro Wat",
+    description:
+      "Ethiopian sourdough flatbread served with a spicy chicken stew.",
+    price: 7990,
+  },
+];
+
+const cat1 = {
+  categoryImage: "/burger1.avif",
+  categoryName: "Traditional Food",
+  description:
+    "Explore a variety of delicious and freshly rwandan food with your favorite toppings.",
+  foodNames: ["Kawunga", "Ubugali", "Imyumbati", "Ibijumba"],
+};
+const cat2 = {
+  categoryImage: "/pizza1.jpg",
+  categoryName: "Junk Food",
+  description:
+    "Explore a variety of delicious and freshly made fast food with your favorite toppings.",
+  foodNames: ["Pizza", "Burger", "Hot dogs", "Wrapps"],
+};
+const cat3 = {
+  categoryImage: "/soda.jfif",
+  categoryName: "Drinks",
+  description: "Explore a variety of drinks with your favorite toppings.",
+  foodNames: ["Soda", "Coffee", "Ice cream", "Water"],
+};
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+    <div className="w-full h-full">
+      <nav className="px-8 py-4 bg-yellow-800 text-white flex items-center justify-between w-full">
+        <div className="font-bold text-4xl ">Ikaze Fast Food</div>
+        <div className="flex items-center gap-4 justify-evenly">
+          <span>Home</span>
+          <a href="#dishes">
+            <span>Dishes</span>
           </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+          <a href="#categories">
+            <span>Categories</span>
           </a>
+          <a href="#menu">
+            <span>Menu</span>
+          </a>
+          <span>Contacts</span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+        <a href="#dishes">
+          <span className="px-4 py-2 rounded-lg  bg-yellow-600">Order now</span>
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+      </nav>
+      <section className="relative w-full h-[90vh] bg-black">
+        <div className="absolute inset-0">
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            src="/burger1.avif"
+            alt="burger"
+            fill={true}
+            style={{ objectFit: "cover" }}
+            className="brightness-90 blur-sm"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+
+        {/* Content Section */}
+        <div className="relative z-10 flex flex-col justify-center items-start h-full max-w-2xl mx-auto px-6 text-white">
+          <h1 className="text-5xl font-bold mb-6">
+            Delicious Fast Food Delivered to Your Door
+          </h1>
+          <p className="text-lg mb-8">
+            Satisfy your cravings with our freshly made, mouth-watering Fast
+            Food. Crafted with premium ingredients and delivered hot to your
+            doorstep!
+          </p>
+          <h1 className="text-2xl font-bold mb-6">Eat well live well</h1>
+          <button
+            className="px-6 py-3 bg-yellow-600 text-white
+            rounded-md hover:bg-yellow-600 transition"
+          >
+            <a href="#dishes">Order Now</a>
+          </button>
+        </div>
+      </section>
+
+      <section id="categories" className=" w-full p-8">
+        <h1 className="text-4xl font-bold text-center py-8">Our Categories</h1>
+        <div className="flex w-full items-center justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold pb-4 ">Traditional Food</h1>
+            <FoodCategoryCard
+              categoryImage={cat1.categoryImage}
+              categoryName={cat1.categoryName}
+              description={cat1.description}
+              foodNames={cat1.foodNames}
+            />
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold  pb-4 ">Hot Deals</h1>
+            <FoodCategoryCard
+              categoryImage={cat2.categoryImage}
+              categoryName={cat2.categoryName}
+              description={cat2.description}
+              foodNames={cat2.foodNames}
+            />
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold  pb-4 ">Drinks</h1>
+            <FoodCategoryCard
+              categoryImage={cat3.categoryImage}
+              categoryName={cat3.categoryName}
+              description={cat3.description}
+              foodNames={cat3.foodNames}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="dishes" className="p-8 ">
+        <div>
+          <h1 className="text-4xl font-bold text-center py-8">
+            Our different Dishes
+          </h1>
+          <div className="w-full flex items-center justify-center gap-4 flex-wrap">
+            {TraditionalFood.map((dish, index) => (
+              <FoodCard
+                key={index}
+                imageSrc={dish.imageSrc}
+                name={dish.name}
+                description={dish.description}
+                price={dish.price}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="menu"
+        className="flex flex-col items-center justify-center w-full py-8 bg-[#080808]"
+      >
+        <h1 className="text-4xl font-bold text-center py-8 text-white">Our MENU</h1>
+        <Image src={"/menu.png"} alt="menu" height={600} width={500} />
+      </section>
     </div>
   );
 }
