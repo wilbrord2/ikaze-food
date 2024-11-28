@@ -85,7 +85,9 @@ export default function Home() {
           <a href="#menu">
             <span>Menu</span>
           </a>
-          <span>Contacts</span>
+          <a href="#contact">
+            <span>Contacts</span>
+          </a>
         </div>
         <a href="#dishes">
           <span className="px-4 py-2 rounded-lg  bg-yellow-600">Order now</span>
@@ -178,8 +180,19 @@ export default function Home() {
         id="menu"
         className="flex flex-col items-center justify-center w-full py-8 bg-[#080808]"
       >
-        <h1 className="text-4xl font-bold text-center py-8 text-white">Our MENU</h1>
+        <h1 className="text-4xl font-bold text-center py-8 text-white">
+          Our MENU
+        </h1>
         <Image src={"/menu.png"} alt="menu" height={600} width={500} />
+      </section>
+
+      <section
+        id="contact"
+        className="flex items-center justify-center gap-2 bg-yellow-900 text-white p-8"
+      >
+        <span className="text-2xl font-bold">Contacts:</span>
+        <span>+250-785694467</span>
+        <span>ikazefastfood@gmail.com</span>
       </section>
     </div>
   );
